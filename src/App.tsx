@@ -1,24 +1,61 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import './App.css'
+import PokeBallImage from './pokeball-logo.png'
+import PokeNav from "./components/PokeNav";
+import ListPokemon from "./components/ListPokemon";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    const [first, setFirst] = useState(1);
+    const [quantity, setQuantity] = useState(10);
+
+    const [typeList, setTypeListPokemon] = useState(<ListPokemon first={first} quantity={quantity}/>);
+
+    const nextPageHandler = () => {
+        const button = document.querySelector('#previousButton') as HTMLButtonElement;
+        setFirst((value) => {
+            button.disabled = false;
+            scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+            return value + quantity;
+        })
+    }
+
+    const previousPageHandler = () => {
+        const button = document.querySelector('#previousButton') as HTMLButtonElement;
+        setFirst((value) => {
+            if(value > 10){
+                button.disabled = false;
+                scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                return value - quantity;
+            }
+            button.disabled = true;
+            return value;
+        })
+    }
+
+    return (
+    <div className="App grid-layout">
+      <div className={'logo box item1'}>
+          <img src={PokeBallImage} alt="PokeballImg" className={"Pokelogo"}/>
+          <h1>PokeDex</h1>
+      </div>
+        <div className={"item2"}>
+            <PokeNav setTypeListPokemon={setTypeListPokemon}/>
+        </div>
+        <div className={"item3"}>
+            {typeList}
+        </div>
+        <div className={"item4 Pagination"}>
+            <button id={'previousButton'} onClick={previousPageHandler}>Previous...</button>
+            <button id={'nextButton'} onClick={nextPageHandler}>Next...</button>
+        </div>
+
+
     </div>
   );
 }

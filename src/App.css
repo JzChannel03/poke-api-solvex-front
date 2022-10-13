@@ -1,33 +1,9 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen&display=swap");
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .Pokelogo {
+    animation: App-logo-spin infinite 8s linear;
   }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -36,3 +12,137 @@
     transform: rotate(360deg);
   }
 }
+.logo {
+  padding-left: 12px;
+}
+.logo h1 {
+  margin-left: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+.logo img {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  width: 30px;
+}
+
+.grid-layout {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  grid-template-rows: auto;
+}
+.grid-layout .box {
+  border: 4px solid black;
+}
+.grid-layout .item1 {
+  grid-column: 1/6;
+  background-color: white;
+}
+.grid-layout .item2 {
+  grid-column: 1/6;
+}
+.grid-layout .item3 {
+  grid-column: 1/6;
+}
+.grid-layout .item4 {
+  grid-column: 1/6;
+}
+
+.Nav {
+  list-style: none;
+  margin: 8px;
+  padding-left: 0;
+}
+.Nav li.viewFavorites {
+  background-color: blue;
+  border: 1px inset blue;
+  color: white;
+}
+.Nav li {
+  user-select: none;
+  display: inline-block;
+  margin: 8px;
+  border: 1px inset white;
+  border-radius: 20px;
+  padding: 3px;
+  background-color: white;
+}
+.Nav li:hover {
+  background-color: #2F3634;
+  color: white;
+  border: 1px inset #2F3634;
+  transition-duration: 1s;
+  cursor: pointer;
+}
+
+.Publications {
+  padding: 10px;
+  border: 2px black outset;
+  background-color: white;
+  border-radius: 20px;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.Publications .Info {
+  width: 70%;
+  border-right: 5px solid black;
+  padding: 15px;
+  margin-right: 15px;
+}
+.Publications .Info div h3 {
+  margin-left: 5px;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  display: inline-block;
+}
+.Publications .Info div img {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  width: 80px;
+  border: 3px dashed blue;
+  border-radius: 100%;
+}
+.Publications .Favorite div {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  user-select: none;
+  cursor: pointer;
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}
+.Publications .Favorite div img {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  width: 20px;
+}
+.Publications .Favorite div h4 {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+  margin-left: 5px;
+  display: inline-block;
+}
+
+.Pagination {
+  margin: 0 auto;
+  border: none;
+}
+.Pagination button {
+  display: inline-block;
+  padding: 15px;
+  margin: 0 10px;
+  border-radius: 15px;
+  font-family: "Silkscreen", cursive;
+  background-color: white;
+}
+
+/*# sourceMappingURL=App.css.map */
