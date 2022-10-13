@@ -4,14 +4,20 @@ import {PokemonsFetch} from "../hooks/pokemonsFetch";
 
 interface paginationProps {
     first: number,
-    quantity: number,
+    quantity: number
 }
 
 const ListPokemon: React.FC<paginationProps> = ({first, quantity}) => {
 
+    const btnPrev = (document.querySelector('#previousButton') as HTMLButtonElement);
+    const btnNext = (document.querySelector('#nextButton') as HTMLButtonElement);
+
+    if(btnPrev !== null){
+        btnPrev.disabled = false;
+        btnNext.disabled = false;
+    }
+
     let {data: listPokemon, loading} = PokemonsFetch(`listpokemon?first=${first}&last=${first + quantity - 1}`);
-    console.log(listPokemon);
-    //debugger;
 
     return (
         <div>

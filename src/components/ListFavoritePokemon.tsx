@@ -8,6 +8,14 @@ interface IListFavoritePokemon{
 }
 
 const ListFavoritePokemon: React.FC<IListFavoritePokemon> = ({endPoint}) => {
+    const btnPrev = (document.querySelector('#previousButton') as HTMLButtonElement);
+    const btnNext = (document.querySelector('#nextButton') as HTMLButtonElement);
+
+    if(btnPrev !== null){
+        btnPrev.disabled = true;
+        btnNext.disabled = true;
+    }
+
 
     let {data: favoritePokemon, loading} = PokemonsFetch(endPoint);
     console.log(favoritePokemon);
